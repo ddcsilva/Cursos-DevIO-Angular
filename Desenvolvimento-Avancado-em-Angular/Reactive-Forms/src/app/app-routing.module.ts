@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './navegacao/home/home.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
+import { CadastroComponent } from './demos/reactive-forms/cadastro/cadastro.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'sobre', component: SobreComponent }
+  { path: 'sobre', component: SobreComponent },
+  { path: 'cadastro', component: CadastroComponent }
 ];
 
 @NgModule({

@@ -7,6 +7,8 @@ import { MenuComponent } from './navegacao/menu/menu.component';
 import { RodapeComponent } from './navegacao/rodape/rodape.component';
 import { HomeComponent } from './navegacao/home/home.component';
 import { SobreComponent } from './institucional/sobre/sobre.component';
+import { CadastroComponent } from './demos/reactive-forms/cadastro/cadastro.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,14 @@ import { SobreComponent } from './institucional/sobre/sobre.component';
     MenuComponent,
     RodapeComponent,
     HomeComponent,
-    SobreComponent
+    SobreComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
