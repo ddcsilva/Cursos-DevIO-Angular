@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';
 
 @Component({
@@ -10,22 +10,26 @@ export class CadastroComponent implements OnInit {
 
   formCadastro: FormGroup = new FormGroup({});
   usuario: Usuario = {} as Usuario;
+  resultado: string = '';
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.formCadastro = this.formBuilder.group({
-      nome: [''],
+      nome: ['', Validators.required],
       cpf: [''],
-      email: [''],
+      email: ['', [Validators.required, Validators.email]],
       senha: [''],
       senhaConfirmacao: ['']
     });
   }
 
   public adicionarUsuario(): void {
-    this.usuario = Object.assign({}, this.usuario, this.formCadastro.value);
-    console.log(this.usuario);
+    if (this.formCadastro.dirty && this.formCadastro.valid) {
+      this.usuario = Object.assign({}, this.usuario, this.formCadastro.value);
+    } else {
+      this.resultado = 'Formulário inválido!';
+    }
   }
 
 }
